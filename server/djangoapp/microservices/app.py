@@ -4,10 +4,12 @@ import json
 app = Flask("Sentiment Analyzer")
 sia = SentimentIntensityAnalyzer()
 
+
 @app.get('/')
 def home():
     return "Welcome to the Sentiment Analyzer. \
     Use /analyze/text to get the sentiment"
+
 
 @app.get('/analyze/<input_txt>')
 def analyze_sentiment(input_txt):
@@ -26,6 +28,7 @@ def analyze_sentiment(input_txt):
     res = json.dumps({"sentiment": res})
     print(res)
     return res
+
 
 if __name__ == "__main__":
     app.run(debug=True)
